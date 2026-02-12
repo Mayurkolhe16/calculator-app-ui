@@ -1,189 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Calculator App | Mayur Kolhe</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<title>3D Calculator | Mayur Kolhe</title>
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-        }
-
-        .calculator {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            width: 300px;
-        }
-
-        #display {
-            width: 100%;
-            height: 50px;
-            margin-bottom: 15px;
-            text-align: right;
-            font-size: 2rem;
-            padding: 10px;
-            border: 2px solid #333;
-            background: #b8d76f;
-            color: #000000;
-            font-family: 'Courier New', monospace;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        button {
-            width: 50px;
-            height: 50px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            background: #f0f0f0;
-            transition: 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        button:hover {
-            background: #dcdcdc;
-            transform: scale(1.05);
-        }
-
-        /* Operator buttons */
-        button:nth-child(4),
-        button:nth-child(8),
-        button:nth-child(12),
-        button:nth-child(16) {
-            background: #ff9f43;
-            color: white;
-        }
-
-        /* Equal button */
-        button:nth-child(15) {
-            background: #28c76f;
-            color: white;
-        }
-
-        /* Clear & Delete */
-        button:last-child,
-        button:nth-last-child(2) {
-            background: #ea5455;
-            color: white;
-        }
-        @media (max-width: 480px) {
-
-    .calculator {
-        width: 90%;
-        padding: 15px;
-    }
-
-    #display {
-        height: 45px;
-        font-size: 1.2rem;
-    }
-
-    button {
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-        footer {
-            position: absolute;
-            bottom: 15px;
-            color: white;
-            font-size: 0.9rem;
-        }
-    </style>
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(145deg,#141e30,#243b55);
+}
+
+.calculator{
+    background:#1c1c1c;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:
+        10px 10px 25px #0d0d0d,
+        -10px -10px 25px #2a2a2a;
+    width:320px;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:15px;
+}
+
+#display{
+    width:100%;
+    height:60px;
+    background:#9acd32;
+    border-radius:10px;
+    margin-bottom:20px;
+    padding:15px;
+    font-size:2rem;
+    text-align:right;
+    font-family:'Courier New',monospace;
+    overflow:hidden;
+    box-shadow: inset 4px 4px 8px rgba(0,0,0,0.5);
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+button{
+    height:60px;
+    font-size:1.2rem;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    background:#2e2e2e;
+    color:white;
+    box-shadow:
+        5px 5px 10px #0d0d0d,
+        -5px -5px 10px #3a3a3a;
+    transition:0.15s ease;
+}
+
+button:active{
+    box-shadow: inset 5px 5px 10px #0d0d0d,
+                inset -5px -5px 10px #3a3a3a;
+    transform:scale(0.95);
+}
+
+/* Operator */
+.operator{
+    background:#ff9500;
+}
+
+/* Equal */
+.equal{
+    background:#28c76f;
+}
+
+/* Clear & Delete */
+.clear{
+    background:#ea5455;
+}
+
+@media(max-width:480px){
+    .calculator{
+        width:90%;
+    }
+}
+
+footer{
+    position:absolute;
+    bottom:20px;
+    color:white;
+    font-size:0.9rem;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="calculator">
-        <h1>Calculator</h1>
-        <div id="display"></div>
+<div class="calculator">
+<h1>Calculator</h1>
+<div id="display"></div>
 
-        <div class="buttons">
-            <div class="buttons">
+<div class="buttons">
 
-                <button onclick="appendValue('7')">7</button>
-                <button onclick="appendValue('8')">8</button>
-                <button onclick="appendValue('9')">9</button>
-                <button onclick="appendValue('/')">/</button>
+<button onclick="appendValue('7')">7</button>
+<button onclick="appendValue('8')">8</button>
+<button onclick="appendValue('9')">9</button>
+<button class="operator" onclick="appendValue('/')">/</button>
 
-                <button onclick="appendValue('4')">4</button>
-                <button onclick="appendValue('5')">5</button>
-                <button onclick="appendValue('6')">6</button>
-                <button onclick="appendValue('*')">*</button>
+<button onclick="appendValue('4')">4</button>
+<button onclick="appendValue('5')">5</button>
+<button onclick="appendValue('6')">6</button>
+<button class="operator" onclick="appendValue('*')">*</button>
 
-                <button onclick="appendValue('1')">1</button>
-                <button onclick="appendValue('2')">2</button>
-                <button onclick="appendValue('3')">3</button>
-                <button onclick="appendValue('-')">-</button>
+<button onclick="appendValue('1')">1</button>
+<button onclick="appendValue('2')">2</button>
+<button onclick="appendValue('3')">3</button>
+<button class="operator" onclick="appendValue('-')">-</button>
 
-                <button onclick="appendValue('0')">0</button>
-                <button onclick="appendValue('.')">.</button>
-                <button onclick="calculateResult()">=</button>
-                <button onclick="appendValue('+')">+</button>
-                <button onclick="deleteLast()">DEL</button>
-                <button onclick="clearDisplay()">C</button>
+<button onclick="appendValue('0')">0</button>
+<button onclick="appendValue('.')">.</button>
+<button class="equal" onclick="calculateResult()">=</button>
+<button class="operator" onclick="appendValue('+')">+</button>
 
+<button class="clear" onclick="deleteLast()">DEL</button>
+<button class="clear" onclick="clearDisplay()">C</button>
 
+</div>
+</div>
 
-            </div>
+<footer>
+Created by Mayur Kolhe
+</footer>
 
-        </div>
-    </div>
+<script>
 
-    <footer>
-        Created by Mayur Kolhe
-    </footer>
+function appendValue(value){
+    const display=document.getElementById("display");
+    display.textContent+=value;
+}
 
-    <script>
+function calculateResult(){
+    const display=document.getElementById("display");
+    try{
+        display.textContent=eval(display.textContent);
+    }catch{
+        display.textContent="Error";
+    }
+}
 
-        function appendValue(value) {
-            const display = document.getElementById("display");
-            display.textContent += value;
-        }
+function clearDisplay(){
+    document.getElementById("display").textContent="";
+}
 
-        function calculateResult() {
-            const display = document.getElementById("display");
-            try {
-                display.textContent = eval(display.textContent);
-            } catch {
-                display.textContent = "Error";
-            }
-        }
-        function clearDisplay() {
-            const display = document.getElementById("display");
-            display.textContent = "";
-        }
-        function deleteLast() {
-            const display = document.getElementById("display");
-            display.textContent = display.textContent.slice(0, -1);
-        }
+function deleteLast(){
+    const display=document.getElementById("display");
+    display.textContent=display.textContent.slice(0,-1);
+}
 
+</script>
 
-    </script>
 </body>
 </html>
