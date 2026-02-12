@@ -52,12 +52,35 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            background: #e0e0e0;
-            transition: 0.2s;
+            background: #f0f0f0;
+            transition: 0.2s ease;
         }
 
         button:hover {
-            background: #d4d4d4;
+            background: #dcdcdc;
+            transform: scale(1.05);
+        }
+
+        /* Operator buttons */
+        button:nth-child(4),
+        button:nth-child(8),
+        button:nth-child(12),
+        button:nth-child(16) {
+            background: #ff9f43;
+            color: white;
+        }
+
+        /* Equal button */
+        button:nth-child(15) {
+            background: #28c76f;
+            color: white;
+        }
+
+        /* Clear & Delete */
+        button:last-child,
+        button:nth-last-child(2) {
+            background: #ea5455;
+            color: white;
         }
         @media (max-width: 480px) {
 
