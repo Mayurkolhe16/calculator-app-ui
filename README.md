@@ -28,6 +28,3 @@ A simple, stylish 3D calculator web application built with HTML, CSS, and JavaSc
 - CSS3
 - JavaScript (Vanilla)
 
-## Author
-
-Created by Mayur Kolhe
