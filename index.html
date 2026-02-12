@@ -98,8 +98,8 @@
                 <button onclick="appendValue('.')">.</button>
                 <button onclick="calculateResult()">=</button>
                 <button onclick="appendValue('+')">+</button>
+                <button onclick="clearDisplay()">C</button>
 
-                <button>C</button>
 
 
             </div>
@@ -125,6 +125,10 @@
             display.value = "Error";
         }
     }
+    function clearDisplay() {
+    document.getElementById("display").value = "";
+}
+
 
 </script>
 
