@@ -59,6 +59,24 @@
         button:hover {
             background: #d4d4d4;
         }
+        @media (max-width: 480px) {
+
+    .calculator {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #display {
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+}
 
         footer {
             position: absolute;
@@ -114,31 +132,27 @@
 
     <script>
 
-    function appendValue(value) {
-        document.getElementById("display").value += value;
-    }
-
-    function calculateResult() {
-        const display = document.getElementById("display");
-        try {
-            display.value = eval(display.value);
-        } catch {
-            display.value = "Error";
+        function appendValue(value) {
+            document.getElementById("display").value += value;
         }
-    }
-    function clearDisplay() {
-    document.getElementById("display").value = "";
-}
-function deleteLast() {
-    const display = document.getElementById("display");
-    display.value = display.value.slice(0, -1);
-}
+
+        function calculateResult() {
+            const display = document.getElementById("display");
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+        function deleteLast() {
+            const display = document.getElementById("display");
+            display.value = display.value.slice(0, -1);
+        }
 
 
-</script>
-
-
-
+    </script>
 </body>
-
 </html>
