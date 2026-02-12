@@ -12,7 +12,7 @@ A simple, stylish 3D calculator web application built with HTML, CSS, and JavaSc
 
 ## Screenshot
 
-![Calculator Screenshot](screenshot.png)
+![Calculator Screenshot](/DEMO.png)
 
 ## How to Use
 
